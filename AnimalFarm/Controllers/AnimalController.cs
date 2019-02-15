@@ -1,5 +1,6 @@
 ﻿using AnimalFarm.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AnimalFarm.Controllers
 {
@@ -14,6 +15,7 @@ namespace AnimalFarm.Controllers
 
         public IActionResult Index()
         {
+            _context.Database.Migrate();
             return View(_context.Animals);
         }
 
