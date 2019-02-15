@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AnimalFarm.Models.Animal>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Farm</title>
+    <link href="/css/main.css" rel="stylesheet" />
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+</head>
+<body>
+
+    <div id="app">
+
+        <form method="post">
+            <div class="buttons">
+                <button asp-action="add" asp-route-name="panda">🐼</button>
+                <button asp-action="add" asp-route-name="pig">🐷</button>
+                <button asp-action="add" asp-route-name="rabbit">🐰</button>
+            </div>
+        </form>
+
+        <div class="animal">
+            @foreach(var animal in Model)
+            {
+                switch (animal.Name)
+                {
+                    case "panda":<span>🐼</span> break;
+                    case "pig":<span>🐷</span> break;
+                    case "rabbit":<span>🐰</span> break;
+                }
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>
