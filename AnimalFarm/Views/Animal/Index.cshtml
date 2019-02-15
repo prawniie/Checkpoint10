@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<AnimalFarm.Models.Animal>
+@inject AnimalFarm.Models.SiteConfig SiteConfig
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +13,12 @@
     <div id="app">
 
         <form method="post">
-            <div class="buttons">
+            <span class="buttons">
                 <button asp-action="add" asp-route-name="panda">🐼</button>
                 <button asp-action="add" asp-route-name="pig">🐷</button>
                 <button asp-action="add" asp-route-name="rabbit">🐰</button>
-            </div>
+                <button method="delete" asp-action="delete" style="background-color:red">✗</button>
+            </span>
         </form>
 
         <div class="animal">

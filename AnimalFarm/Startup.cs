@@ -23,6 +23,9 @@ namespace AnimalFarm
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            var appConfiguration = Configuration.GetSection("SiteConfig").Get<SiteConfig>();
+            services.AddSingleton(appConfiguration);
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
